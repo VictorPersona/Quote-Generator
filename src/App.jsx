@@ -12,9 +12,12 @@ function App() {
       .then((res) => res.json())
       .then((mainData) => {
         setQuotesData(mainData)
-        handleRandomQuote()
       })
   }, [])
+
+  useEffect(() => {
+    handleRandomQuote()
+  }, [quotesData])
 
   function handleRandomQuote() {
     if (quotesData && quotesData.length > 0) {
